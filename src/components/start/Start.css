@@ -1,0 +1,71 @@
+/* MAIN */
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main .electric-intelligence {
+    width: 255px;
+    font-size: .875em ;
+    font-weight: 600;
+    color: #D0BCFF;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: rgba(208, 188, 255, 0.1);
+    border: 1px solid rgba(208, 188, 255, 0.1);
+    border-radius: 1.25em;
+    padding: .3em 0;
+    display: flex;
+    justify-content: center;
+    gap: .5em;
+    animation: float 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px)
+    }
+    100% {
+        transform: translateY(-20px);
+    }
+}
+
+main .text-div {
+    width: 80%;
+    text-align: center;
+}
+
+main .text-div h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 2.5em;
+    font-weight: 900;
+    color: #E5E2E1;
+    margin-bottom: 0;
+}
+
+main .text-div p {
+    font-size: 1.125em;
+    color: #CBC3D7;
+}
+
+.start-btn {
+    width: 40%;
+    max-width: 230px;
+    height: 70px;
+    margin-top: 2em;
+    border: none;
+    border-radius: 12px;
+    background: #D0BCFF;
+    box-shadow: 0 0 20px 0 rgba(208, 188, 255, 0.4);
+    font-family: Montserrat;
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #3C0091;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .65em;
+}

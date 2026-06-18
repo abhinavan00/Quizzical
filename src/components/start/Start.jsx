@@ -1,14 +1,16 @@
 import electricIconBold from '../../assets/electric-icon-bold.svg'
+import arrowIcon from '../../assets/arrow-icon.svg'
+import './Start.css'
 
 export default function Start() {
     return (
         <div>
             <main>
-                <div>
+                <div className='electric-intelligence'>
                     <img src={electricIconBold} alt='purple electric icon' />
                     <span>Electric Intelligence</span>
                 </div>
-                <div>
+                <div className='text-div'>
                     <h1>Quizzical</h1>
                     <p>
                         Test your knowledge with the most
@@ -16,7 +18,10 @@ export default function Start() {
                         topics.
                     </p>
                 </div>
-                <button>Start Quiz</button>
+                <button className='start-btn'>
+                    Start Quiz
+                    <img src={arrowIcon} alt='right pointing arrow icon' />
+                </button>
             </main>
         </div>
     )
