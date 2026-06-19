@@ -68,4 +68,5 @@ main .text-div p {
     justify-content: center;
     align-items: center;
     gap: .65em;
+    cursor: pointer;
 }

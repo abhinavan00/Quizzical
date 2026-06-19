@@ -1,8 +1,13 @@
+import Quiz from '../quiz/Quiz.jsx'
 import electricIconBold from '../../assets/electric-icon-bold.svg'
 import arrowIcon from '../../assets/arrow-icon.svg'
 import './Start.css'
 
-export default function Start() {
+export default function Start(props) {
+    function handleClick() {
+       return props.renderPage('Quiz')
+    }
+
     return (
         <div>
             <main>
@@ -18,7 +23,7 @@ export default function Start() {
                         topics.
                     </p>
                 </div>
-                <button className='start-btn'>
+                <button className='start-btn' onClick={handleClick}>
                     Start Quiz
                     <img src={arrowIcon} alt='right pointing arrow icon' />
                 </button>
