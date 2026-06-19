@@ -2,7 +2,7 @@
 header {
     background: rgba(19, 19, 19, 0.8);
     backdrop-filter: blur(12px);
-    padding: .1em;
+    padding: 1em;
     border-bottom: 1px solid rgba(73, 68, 84, 0.3);
     text-align: center;
 }
@@ -12,4 +12,5 @@ header h1 {
     font-size: 2.5em;
     font-weight: 800;
     color: #D0BCFF;
+    margin: 0;
 }
