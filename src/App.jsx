@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import Start from './components/start/Start.jsx'
-import Quiz from './components/quiz/Quiz.jsx'
+import StartPage from './components/StartPage/StartPage.jsx'
+import QuizPage from './components/QuizPage/QuizPage.jsx'
 import './App.css'
 
 function App() {
@@ -8,11 +8,11 @@ function App() {
 
   switch(currentPage) {
     case 'Start':
-      return <Start renderPage={renderPage}/>;
+      return <StartPage renderPage={renderPage}/>;
     case 'Quiz':
-      return <Quiz />;
+      return <QuizPage />;
     default:
-      return <Start />;
+      return <StartPage />;
   }
 
   function renderPage(page) {

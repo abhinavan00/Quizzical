@@ -1,4 +1,4 @@
-import './Quiz.css'
+import './QuizPage.css'
 
 export default function Quiz() {
     return (

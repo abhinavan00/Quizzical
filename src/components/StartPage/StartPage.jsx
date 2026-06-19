@@ -1,6 +1,6 @@
 import electricIconBold from '../../assets/electric-icon-bold.svg'
 import arrowIcon from '../../assets/arrow-icon.svg'
-import './Start.css'
+import './StartPage.css'
 
 export default function Start(props) {
     function handleClick() {
