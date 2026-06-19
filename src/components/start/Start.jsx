@@ -1,4 +1,3 @@
-import Quiz from '../quiz/Quiz.jsx'
 import electricIconBold from '../../assets/electric-icon-bold.svg'
 import arrowIcon from '../../assets/arrow-icon.svg'
 import './Start.css'
