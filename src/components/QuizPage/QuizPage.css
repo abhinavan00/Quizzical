@@ -5,6 +5,7 @@ header {
     padding: 1em;
     border-bottom: 1px solid rgba(73, 68, 84, 0.3);
     text-align: center;
+    margin-bottom: 2.5em;
 }
 
 header h1 {
