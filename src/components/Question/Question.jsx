@@ -9,7 +9,7 @@ export default function Question() {
                 solar system is known as the
                 "Red Planet"?
             </p>
-            <div>
+            <div className='options-container'>
                 <Option />
                 <Option />
                 <Option />

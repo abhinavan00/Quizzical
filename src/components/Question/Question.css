@@ -1,7 +1,7 @@
 /* QUISTION BOX */
 .question-box {
     background: rgba(30, 30, 30, 0.6);
-    padding: .5em 1.15em;
+    padding: .5em 1.15em 1.5em;
     margin: 1em;
     border: 1px solid rgba(255, 255, 255, 0.08);
     border-radius: .75em;
@@ -13,6 +13,12 @@ p {
     font-size: 1.25em;
     font-weight: 600;
     color: #E5E2E1;
+    margin-bottom: 1.35em;
+}
+
+.options-container {
+    display: grid;
+    gap: .75em;
 }
 
 
