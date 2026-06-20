@@ -1,3 +1,4 @@
+import Option from './Option/Option.jsx'
 import './Question.css'
 
 export default function Question() {
@@ -8,15 +9,12 @@ export default function Question() {
                 solar system is known as the
                 "Red Planet"?
             </p>
-            <label htmlFor='question-1'>
-                <span>Jupiter</span>
-                <input 
-                    type='radio'
-                    id='question-1'
-                    value={'Jupiter'}
-                    name='questions-radios'
-                />
-            </label>
+            <div>
+                <Option />
+                <Option />
+                <Option />
+                <Option />
+            </div>
         </div>
     )
 }
