@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useId } from 'react'
 import StartPage from './components/StartPage/StartPage.jsx'
 import QuizPage from './components/QuizPage/QuizPage.jsx'
 import './App.css'
 
 function App() {
   const [currentPage, SetCurrentPage] = useState('Start')
+  const [data, setData] = useState([])
 
   useEffect(() => {
     async function fetchData() {
@@ -18,7 +19,7 @@ function App() {
           answer: result.correct_answer
         }
       })
-      console.log(options)
+      setData(prevData => options)
     } 
 
     fetchData()
@@ -28,7 +29,7 @@ function App() {
     case 'Start':
       return <StartPage renderPage={renderPage}/>;
     case 'Quiz':
-      return <QuizPage />;
+      return <QuizPage data={data} />;
     default:
       return <StartPage />;
   }

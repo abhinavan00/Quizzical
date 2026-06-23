@@ -1,19 +1,22 @@
+import { useId } from 'react'
 import Option from './Option/Option.jsx'
 import './Question.css'
 
-export default function Question() {
+export default function Question({dataItem}) {
+
+    const optionEl = dataItem.options.map(option => {
+        return (
+            <Option key={useId()} option={option} />
+        )
+    })
+
     return (
         <div className="question-box">
             <p>
-                Which of these planets in our
-                solar system is known as the
-                "Red Planet"?
+                {dataItem.question}
             </p>
             <div className='options-container'>
-                <Option />
-                <Option />
-                <Option />
-                <Option />
+                {optionEl}
             </div>
         </div>
     )

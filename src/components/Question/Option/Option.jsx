@@ -1,14 +1,14 @@
 import './Option.css'
 
-export default function Option() {
+export default function Option({option}) {
     return (
-        <label htmlFor='question-1'>
-            <span>Jupiter</span>
+        <label htmlFor={option}>
+            <span>{option}</span>
             <input 
                 type='radio'
-                id='question-1'
+                id={option}
                 value={'Jupiter'}
-                name='questions-radios'
+                name='option-radios'
             />
         </label>
     )
