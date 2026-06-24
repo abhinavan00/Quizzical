@@ -11,6 +11,7 @@ function App() {
     async function fetchData() {
       const res = await fetch('https://opentdb.com/api.php?amount=5')
       const data = await res.json()
+
       const options = data.results.map(result => {
         const randomIndex = Math.floor(Math.random() * (result.incorrect_answers.length + 1))
         return {
