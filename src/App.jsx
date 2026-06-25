@@ -16,14 +16,28 @@ function App() {
 
         const options = data.results.map(result => {
           const randomIndex = Math.floor(Math.random() * (result.incorrect_answers.length + 1))
+
+          const optionsArr = [...result.incorrect_answers].toSpliced(randomIndex, 0, result.correct_answer)
+
+          const optionsWithId = optionsArr.map(option => {
+            return {
+              optionId: nanoid(),
+              option: option
+            }
+          })
+
+          // [...result.incorrect_answers].toSpliced(randomIndex, 0, result.correct_answer)
+
           return {
             id: nanoid(),
             question: result.question,
-            options: [...result.incorrect_answers].toSpliced(randomIndex, 0, result.correct_answer),
+            options: optionsWithId,
             answer: result.correct_answer
           }
         })
+
         setData(prevData => options)
+
       } catch (error) {
         console.error('Fetch error:', error)
       }

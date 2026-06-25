@@ -7,7 +7,7 @@ export default function Question({dataItem}) {
 
     const optionEl = dataItem.options.map(option => {
         return (
-            <Option key={useId()} option={decode(option)} name={dataItem.id} />
+            <Option key={useId()} option={option} name={dataItem.id} />
         )
     })
 
