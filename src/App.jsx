@@ -1,6 +1,7 @@
 import { useState, useEffect, useId } from 'react'
 import StartPage from './components/StartPage/StartPage.jsx'
 import QuizPage from './components/QuizPage/QuizPage.jsx'
+import { nanoid } from 'nanoid'
 import './App.css'
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         const options = data.results.map(result => {
           const randomIndex = Math.floor(Math.random() * (result.incorrect_answers.length + 1))
           return {
+            id: nanoid(),
             question: result.question,
             options: [...result.incorrect_answers].toSpliced(randomIndex, 0, result.correct_answer),
             answer: result.correct_answer

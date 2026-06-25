@@ -12,7 +12,7 @@ export default function QuizPage({data}) {
 
     function handleSubmit(formData) {
         const optionValues = data.map(dataItem => {
-            return formData.get(dataItem.question)
+            return formData.get(dataItem.id)
         })
         console.log(optionValues)
     }
