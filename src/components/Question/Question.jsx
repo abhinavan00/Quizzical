@@ -1,6 +1,7 @@
 import { useId } from 'react'
 import Option from './Option/Option.jsx'
 import {decode} from 'html-entities';
+import clsx from 'clsx';
 import './Question.css'
 
 export default function Question({dataItem}) {
