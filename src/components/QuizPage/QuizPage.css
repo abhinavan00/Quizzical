@@ -15,3 +15,38 @@ header h1 {
     color: #D0BCFF;
     margin: 0;
 }
+
+/* FORM SECTION */
+form {
+    margin-bottom: 8em;
+}
+
+form .btn-container {
+    background: rgba(19, 19, 19, 0.9);
+    padding: 1em;
+    backdrop-filter: blur(24px);
+    border-top: 1px solid rgba(73, 68, 84, 0.2);
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+form .btn-container button {
+    width: 98%;
+    font-family: Montserrat;
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #3C0091;
+    background: #D0BCFF;
+    padding: 1em 0;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 0 20px 0 rgba(208, 188, 255, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+    cursor: pointer;
+}

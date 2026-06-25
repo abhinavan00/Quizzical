@@ -1,5 +1,6 @@
 import { useId } from 'react'
 import Question from '../Question/Question.jsx'
+import electricIcon from '../../assets/electric-icon-hollow.svg'
 import './QuizPage.css'
 
 export default function QuizPage({data}) {
@@ -24,7 +25,12 @@ export default function QuizPage({data}) {
             </header>
             <form action={handleSubmit}>
                 {questionEl}
-                <button type='submit'>Submit</button>
+                <div className='btn-container'>
+                    <button type='submit'>
+                        Check Answers
+                        <img src={electricIcon} alt='electric icon'/>
+                    </button>
+                </div>
             </form>
         </div>
     )
