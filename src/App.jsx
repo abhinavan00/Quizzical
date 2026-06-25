@@ -9,18 +9,22 @@ function App() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await fetch('https://opentdb.com/api.php?amount=5')
-      const data = await res.json()
+      try {
+        const res = await fetch('https://opentdb.com/api.php?amount=5')
+        const data = await res.json()
 
-      const options = data.results.map(result => {
-        const randomIndex = Math.floor(Math.random() * (result.incorrect_answers.length + 1))
-        return {
-          question: result.question,
-          options: [...result.incorrect_answers].toSpliced(randomIndex, 0, result.correct_answer),
-          answer: result.correct_answer
-        }
-      })
-      setData(prevData => options)
+        const options = data.results.map(result => {
+          const randomIndex = Math.floor(Math.random() * (result.incorrect_answers.length + 1))
+          return {
+            question: result.question,
+            options: [...result.incorrect_answers].toSpliced(randomIndex, 0, result.correct_answer),
+            answer: result.correct_answer
+          }
+        })
+        setData(prevData => options)
+      } catch (error) {
+        console.error('Fetch error:', error)
+      }
     } 
 
     fetchData()

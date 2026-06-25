@@ -10,13 +10,21 @@ export default function QuizPage({data}) {
         )
     })
 
+    function handleSubmit(formData) {
+        const optionValues = data.map(dataItem => {
+            return formData.get(dataItem.question)
+        })
+        console.log(optionValues)
+    }
+
     return (
         <div>
             <header>
                 <h1>Quizzical</h1>
             </header>
-            <form>
+            <form action={handleSubmit}>
                 {questionEl}
+                <button type='submit'>Submit</button>
             </form>
         </div>
     )
