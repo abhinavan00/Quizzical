@@ -1,4 +1,4 @@
-import { useState, useId } from 'react'
+import { useState} from 'react'
 import Question from '../Question/Question.jsx'
 import electricIcon from '../../assets/electric-icon-hollow.svg'
 import clsx from 'clsx'
@@ -7,10 +7,16 @@ import './QuizPage.css'
 export default function QuizPage({data}) {
 
     const [selectedOptions, setSelectedOptions] = useState([])
+    const [isSubmitted, setIsSubmitted] = useState(false)
 
     const questionEl = data.map(dataItem => {
        return (
-            <Question key={useId()} dataItem={dataItem} selectedOptions={selectedOptions} />
+            <Question 
+                key={dataItem.id} 
+                dataItem={dataItem} 
+                selectedOptions={selectedOptions} 
+                isSubmitted={isSubmitted}
+            />
         )
     })
 
@@ -18,8 +24,9 @@ export default function QuizPage({data}) {
         const optionValues = data.map(dataItem => {
             return formData.get(dataItem.id)
         })
-        
+
         setSelectedOptions(optionValues)
+        setIsSubmitted(true)
     }
 
     return (

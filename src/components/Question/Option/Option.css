@@ -40,3 +40,13 @@ label:has(input[type='radio']:checked) {
     background: rgba(208, 188, 255, 0.1);
     border: 1px solid #D0BCFF;
 }
+
+label:has(input[type='radio'].correct) {
+    background: rgba(34, 197, 94, 0.1);
+    border: 2px solid #10B981;
+}
+
+label:has(input[type='radio'].incorrect) {
+    background: rgba(239, 68, 68, 0.1);
+    border: 2px solid #EF4444;
+}

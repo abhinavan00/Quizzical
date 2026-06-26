@@ -1,14 +1,20 @@
-import { useId } from 'react'
 import Option from './Option/Option.jsx'
 import {decode} from 'html-entities';
 import clsx from 'clsx';
 import './Question.css'
 
-export default function Question({dataItem}) {
+export default function Question({dataItem, selectedOptions, isSubmitted}) {
 
     const optionEl = dataItem.options.map(option => {
         return (
-            <Option key={useId()} option={option} name={dataItem.id} />
+            <Option 
+                key={option.optionId} 
+                option={option} 
+                name={dataItem.id} 
+                selectedOptions={selectedOptions}
+                answer={dataItem.answer}
+                isSubmitted={isSubmitted}
+            />
         )
     })
 
