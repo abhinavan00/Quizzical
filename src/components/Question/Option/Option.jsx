@@ -6,10 +6,10 @@ import './Option.css'
 export default function Option({option, name, answer, isSubmitted, selectedOptions}) {
 
     const isSelectedByUser = selectedOptions.includes(option.option)
-    const isCorrectChoice = answer === option.option
+    const isCorrectChoice = (answer === option.option)
 
     const optionClass = clsx({
-        correct: isSelectedByUser && isCorrectChoice,
+        correct: (isSelectedByUser && isCorrectChoice) || (isSubmitted && isCorrectChoice),
         incorrect: isSubmitted && isSelectedByUser && !isCorrectChoice,
         dimmed: isSubmitted && !isCorrectChoice && !isSelectedByUser
     })
