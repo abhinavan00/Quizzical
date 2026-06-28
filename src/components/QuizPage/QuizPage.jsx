@@ -20,6 +20,11 @@ export default function QuizPage({data}) {
         )
     })
 
+    if(isSubmitted) {
+        const score = data.filter(dataItem => selectedOptions.includes(dataItem.answer)).length
+        console.log(`${score}/${data.length}`)
+    }
+
     function handleSubmit(formData) {
         const optionValues = data.map(dataItem => {
             return formData.get(dataItem.id)
@@ -34,6 +39,13 @@ export default function QuizPage({data}) {
             <header>
                 <h1>Quizzical</h1>
             </header>
+            {
+                isSubmitted && 
+                <section className='quiz-completed'>
+                    <h2>Quiz Completed!</h2>
+                    <p>You scored <span>3/5</span> correct answers</p>
+                </section>
+            }
             <form action={handleSubmit}>
                 {questionEl}
                 <div className='btn-container'>
