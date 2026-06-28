@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Question from '../Question/Question.jsx'
 import electricIcon from '../../assets/electric-icon-hollow.svg'
 import clsx from 'clsx'
@@ -11,41 +11,48 @@ export default function QuizPage() {
     const [selectedOptions, setSelectedOptions] = useState([])
     const [isSubmitted, setIsSubmitted] = useState(false)
 
+    const scoreSection = useRef(null)
+
     useEffect(() => {
-        async function fetchData() {
-        try {
-            const res = await fetch('https://opentdb.com/api.php?amount=5')
-            const data = await res.json()
+        if(!isSubmitted) {
+            async function fetchData() {
+            try {
+                const res = await fetch('https://opentdb.com/api.php?amount=5')
+                const data = await res.json()
 
-            const options = data.results.map(result => {
-                const randomIndex = Math.floor(Math.random() * (result.incorrect_answers.length + 1))
+                const options = data.results.map(result => {
+                    const randomIndex = Math.floor(Math.random() * (result.incorrect_answers.length + 1))
 
-                const optionsArr = [...result.incorrect_answers].toSpliced(randomIndex, 0, result.correct_answer)
+                    const optionsArr = [...result.incorrect_answers].toSpliced(randomIndex, 0, result.correct_answer)
 
-                const optionsWithId = optionsArr.map(option => {
+                    const optionsWithId = optionsArr.map(option => {
+                        return {
+                        optionId: nanoid(),
+                        option: option
+                        }
+                    })
+
                     return {
-                    optionId: nanoid(),
-                    option: option
+                        id: nanoid(),
+                        question: result.question,
+                        options: optionsWithId,
+                        answer: result.correct_answer
                     }
                 })
 
-                return {
-                    id: nanoid(),
-                    question: result.question,
-                    options: optionsWithId,
-                    answer: result.correct_answer
-                }
-            })
+                setData(prevData => options)
 
-            setData(prevData => options)
+            } catch (error) {
+                console.error('Fetch error:', error)
+            }
+            } 
 
-        } catch (error) {
-            console.error('Fetch error:', error)
+            fetchData()
+        } else {
+            scoreSection.current.scrollIntoView({ behavior: 'smooth'})
         }
-        } 
 
-        fetchData()
-    }, [])
+    }, [isSubmitted])
 
     const questionEl = data.map(dataItem => {
        return (
@@ -64,12 +71,17 @@ export default function QuizPage() {
     }
 
     function handleSubmit(formData) {
-        const optionValues = data.map(dataItem => {
-            return formData.get(dataItem.id)
-        })
+        if(!isSubmitted) {
+            const optionValues = data.map(dataItem => {
+                return formData.get(dataItem.id)
+            })
 
-        setSelectedOptions(optionValues)
-        setIsSubmitted(true)
+            setSelectedOptions(optionValues)
+            setIsSubmitted(prev => !prev)
+        } else {
+            setIsSubmitted(prev => !prev)
+            setSelectedOptions([])
+        }
     }
 
     return (
@@ -79,7 +91,7 @@ export default function QuizPage() {
             </header>
             {
                 isSubmitted && 
-                <section className='quiz-completed'>
+                <section className='quiz-completed' ref={scoreSection}>
                     <h2>Quiz Completed!</h2>
                     <p>You scored <span>{calculateScore()}</span> correct answers</p>
                 </section>
@@ -87,13 +99,13 @@ export default function QuizPage() {
             <form action={handleSubmit}>
                 {questionEl}
                 <div className='btn-container'>
-                    {
+                    {   
                         !isSubmitted ? 
-                        <button type='submit'>
+                        <button>
                             Check Answers
                             <img src={electricIcon} alt='electric icon'/>
                         </button> :
-                        <button type='button' className='play-again'>
+                        <button className='play-again' >
                             Play Again
                         </button>
                     }
