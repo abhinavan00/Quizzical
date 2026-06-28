@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Question from '../Question/Question.jsx'
 import electricIcon from '../../assets/electric-icon-hollow.svg'
+import playAgainIcon from '../../assets/play-again-icon.svg'
 import clsx from 'clsx'
 import { nanoid } from 'nanoid'
 import './QuizPage.css'
@@ -81,6 +82,10 @@ export default function QuizPage() {
         } else {
             setIsSubmitted(prev => !prev)
             setSelectedOptions([])
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            })
         }
     }
 
@@ -106,6 +111,7 @@ export default function QuizPage() {
                             <img src={electricIcon} alt='electric icon'/>
                         </button> :
                         <button className='play-again' >
+                            <img src={playAgainIcon} alt='play again icon' />
                             Play Again
                         </button>
                     }
