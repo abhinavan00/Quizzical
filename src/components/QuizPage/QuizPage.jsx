@@ -20,9 +20,9 @@ export default function QuizPage({data}) {
         )
     })
 
-    if(isSubmitted) {
+    function calculateScore() {
         const score = data.filter(dataItem => selectedOptions.includes(dataItem.answer)).length
-        console.log(`${score}/${data.length}`)
+        return `${score}/${data.length}`
     }
 
     function handleSubmit(formData) {
@@ -43,7 +43,7 @@ export default function QuizPage({data}) {
                 isSubmitted && 
                 <section className='quiz-completed'>
                     <h2>Quiz Completed!</h2>
-                    <p>You scored <span>3/5</span> correct answers</p>
+                    <p>You scored <span>{calculateScore()}</span> correct answers</p>
                 </section>
             }
             <form action={handleSubmit}>

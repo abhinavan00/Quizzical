@@ -53,5 +53,31 @@ form .btn-container button {
 
 /* SECTION: QUIZ COMPLETED */
 .quiz-completed {
-    
+    text-align: center;
+}
+
+.quiz-completed h2 {
+    font-family: Montserrat;
+    font-size: 2.5em;
+    font-weight: 800;
+    color: #D0BCFF;
+    margin-bottom: 0;
+}
+
+.quiz-completed p {
+    font-family: Montserrat;
+    font-size: 1.25em;
+    font-weight: 500;
+    color: #E5E2E1;
+    background: rgba(30, 30, 30, 0.6);
+    width: 94%;
+    margin: 1em auto 2em;
+    padding: 1.25em 0;
+    border: 1px solid rgba(208, 188, 255, 0.2);
+    border-radius: 2em;
+}
+
+.quiz-completed span {
+    color: #4CD7F6;
+    font-weight: 600;
 }

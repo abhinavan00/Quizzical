@@ -26,8 +26,6 @@ function App() {
             }
           })
 
-          // [...result.incorrect_answers].toSpliced(randomIndex, 0, result.correct_answer)
-
           return {
             id: nanoid(),
             question: result.question,
