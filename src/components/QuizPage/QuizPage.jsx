@@ -87,10 +87,16 @@ export default function QuizPage() {
             <form action={handleSubmit}>
                 {questionEl}
                 <div className='btn-container'>
-                    <button type='submit'>
-                        Check Answers
-                        <img src={electricIcon} alt='electric icon'/>
-                    </button>
+                    {
+                        !isSubmitted ? 
+                        <button type='submit'>
+                            Check Answers
+                            <img src={electricIcon} alt='electric icon'/>
+                        </button> :
+                        <button type='button' className='play-again'>
+                            Play Again
+                        </button>
+                    }
                 </div>
             </form>
         </div>

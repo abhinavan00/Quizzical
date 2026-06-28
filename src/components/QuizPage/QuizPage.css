@@ -51,6 +51,12 @@ form .btn-container button {
     cursor: pointer;
 }
 
+form .btn-container button.play-again {
+    color: white;
+    background: #8B5CF6;
+    box-shadow: 0 10px 20px 0 rgba(139, 92, 246, 0.3);
+}
+
 /* SECTION: QUIZ COMPLETED */
 .quiz-completed {
     text-align: center;
