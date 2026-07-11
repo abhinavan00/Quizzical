@@ -20,7 +20,7 @@ export default function QuizPage() {
             try {
                 const res = await fetch('https://opentdb.com/api.php?amount=5')
                 const data = await res.json()
-
+                
                 const options = data.results.map(result => {
                     const randomIndex = Math.floor(Math.random() * (result.incorrect_answers.length + 1))
 
@@ -42,6 +42,7 @@ export default function QuizPage() {
                 })
 
                 setData(prevData => options)
+                
 
             } catch (error) {
                 console.error('Fetch error:', error)
@@ -49,22 +50,25 @@ export default function QuizPage() {
             } 
 
             fetchData()
+        
         } else {
             scoreSection.current.scrollIntoView({ behavior: 'smooth'})
         }
 
     }, [isSubmitted])
 
-    const questionEl = data.map(dataItem => {
-       return (
-            <Question 
-                key={dataItem.id} 
-                dataItem={dataItem} 
-                selectedOptions={selectedOptions} 
-                isSubmitted={isSubmitted}
-            />
-        )
-    })
+    const questionEl = data.length === 0 ? <h1>Loading...</h1> : 
+        data.map(dataItem => {
+        return (
+                <Question 
+                    key={dataItem.id} 
+                    dataItem={dataItem} 
+                    selectedOptions={selectedOptions} 
+                    isSubmitted={isSubmitted}
+                />
+            )
+        })
+    
 
     function calculateScore() {
         const score = data.filter(dataItem => selectedOptions.includes(dataItem.answer)).length
