@@ -57,17 +57,17 @@ export default function QuizPage() {
 
     }, [isSubmitted])
 
-    const questionEl = <div class="loader"></div>  
-        // data.map(dataItem => {
-        // return (
-        //         <Question 
-        //             key={dataItem.id} 
-        //             dataItem={dataItem} 
-        //             selectedOptions={selectedOptions} 
-        //             isSubmitted={isSubmitted}
-        //         />
-        //     )
-        // })
+    const questionEl = data.length === 0 ? <div class="loader"></div> :
+        data.map(dataItem => {
+        return (
+                <Question 
+                    key={dataItem.id} 
+                    dataItem={dataItem} 
+                    selectedOptions={selectedOptions} 
+                    isSubmitted={isSubmitted}
+                />
+            )
+        })
     
 
     function calculateScore() {
