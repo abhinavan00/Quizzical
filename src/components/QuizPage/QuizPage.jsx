@@ -57,7 +57,7 @@ export default function QuizPage() {
 
     }, [isSubmitted])
 
-    const questionEl = data.length === 0 ? <div class="loader"></div> :
+    const questionEl = data.length === 0 ? <div className="loader"></div> :
         data.map(dataItem => {
         return (
                 <Question 
