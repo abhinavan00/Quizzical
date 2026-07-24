@@ -81,6 +81,7 @@ export default function QuizPage() {
                 return formData.get(dataItem.id)
             })
 
+            console.log(optionValues)
             setSelectedOptions(optionValues)
             setIsSubmitted(prev => !prev)
         } else {
