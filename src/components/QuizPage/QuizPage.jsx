@@ -80,10 +80,16 @@ export default function QuizPage() {
             const optionValues = data.map(dataItem => {
                 return formData.get(dataItem.id)
             })
+            
+            // find a way to disable the check answer button untill all question are answered.
+            if(!optionValues.includes(null)) {
+                setSelectedOptions(optionValues)
+                setIsSubmitted(prev => !prev)
+            } else {
+                alert('Please answer all questions.')
+            }
 
-            console.log(optionValues)
-            setSelectedOptions(optionValues)
-            setIsSubmitted(prev => !prev)
+
         } else {
             setIsSubmitted(prev => !prev)
             setSelectedOptions([])
